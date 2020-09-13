@@ -28,11 +28,11 @@ export default function Weather() {
           </div>
           <div id="degree" class="weatherTemp">
             80
-            <a herf="#" id="fernLink" class="active">
+            <a href="/#" id="fernLink" class="active">
               ℉
             </a>{" "}
             |
-            <a herf="#" id="celLink">
+            <a href="/#" id="celLink">
               ℃
             </a>
           </div>

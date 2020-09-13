@@ -14,7 +14,7 @@ export default function Forecast() {
         <a
           class="underline"
           href="https://github.com/McLovinCSUN/JS-Vanilla-finalProject-SheCodes"
-          target="_blank"
+          target="noopener noreferrer"
         >
           Open-Source Code
         </a>
@@ -24,24 +24,24 @@ export default function Forecast() {
       <div class="socialMedia">
         <a
           class="underline"
-          href="https://github.com/McLovinCSUN"
+          href="https://github.com/McLovinCSUN "
           rel="noopener noreferrer"
         >
-          <img src={github} width="45" heigth="45" alt="" />
+          <img src={github} width="45" heigth="45" alt="GitHub-logo" />
         </a>
         <a
           class="underline"
-          href="https://www.linkedin.com/in/maria-martinez-8810081a2/"
+          href="https://www.linkedin.com/in/maria-martinez-8810081a2/ "
           rel="noopener noreferrer"
         >
-          <img src={linkedin} width="50" heigth="50" alt="" />
+          <img src={linkedin} width="50" heigth="50" alt="LinkedIn-logo" />
         </a>
         <a
           class="underline"
-          href="https://www.instagram.com/maria_learning2code/?hl=en"
+          href="https://www.instagram.com/maria_learning2code/?hl=en "
           rel="noopener noreferrer"
         >
-          <img src={instagram} width="54" heigth="54" alt="" />
+          <img src={instagram} width="54" heigth="54" alt="Instagram-logo" />
         </a>
       </div>
     </div>
