@@ -1,53 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
+
+import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  return (
-    <div className="Weahter">
-      <div class="info">
-        <div id="city">
-          <h1 id="currentCity">Los Angeles</h1>
-          <p class="countries">,US</p>
-          <div class="countries" id="country"></div>
-        </div>
-        <div id="date">Friday 08/27/2020</div>
-        <small>
-          <br />
-          <button id="currentLocation" class="button">
-            Current Location
-          </button>
-        </small>
-      </div>
-      <br />
-      <div class="row">
-        <div class="col">
-          <div class="colOne">
-            <img src="" alt="" id="icon" />
-            <span id="temp"></span>
-            <p id="description"></p>
-          </div>
-          <div id="degree" class="weatherTemp">
-            80
-            <a href="/#" id="fernLink" class="active">
-              ℉
-            </a>{" "}
-            |
-            <a href="/#" id="celLink">
-              ℃
-            </a>
-          </div>
-          <div class="colTwo">
-            <div>
-              Humidity: <span id="humidity">10</span>%
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+  let moods = "";
+
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+      country: response.data.sys.country,
+    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <div className="one">
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a city.."
+                  className="form-control"
+                  autoFocus="on"
+                  onChange={handleCityChange}
+                />
+              </div>
+              <div className="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  className="btn btn-primary w-100"
+                />
+              </div>
             </div>
-            <br />
-            <div>
-              Wind: 4<span id="wind"></span>
-              <small> km/hr</small>
-            </div>
-          </div>
+          </form>
+
+          <WeatherInfo data={weatherData} />
+        </div>
+
+        <div className="two">
+          <WeatherForecast city={weatherData.city} />
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
