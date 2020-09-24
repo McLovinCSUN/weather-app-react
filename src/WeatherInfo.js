@@ -42,7 +42,7 @@ export default function WeatherInfo(props) {
             </div>
           </div>
           <div className="float-right">
-            <Cat size={200} mood={catMood} color="pink" />;
+            <Cat size={200} mood={catMood} color="pink" />
           </div>
         </div>
         <div className="col-6">

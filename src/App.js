@@ -9,20 +9,23 @@ export default function App() {
         <Weather defaultCity="Los Angeles" />
 
         <footer>
-          This project was coded by{" "}
-          <a href="https://www.delac.io/" target="noopener noreferrer">
-            Maria Martinez
-          </a>{" "}
-          and is{" "}
+          Open-sourced by{" "}
           <a
-            href="https://github.com/wecodeschool/react-weather-app"
+            href="https://www.linkedin.com/in/maria-martinez-8810081a2/"
             target="noopener noreferrer"
           >
-            open-sourced on GitHub
+            <strong>Maria Martinez</strong>
+          </a>{" "}
+          on{" "}
+          <a
+            href="https://github.com/McLovinCSUN/weather-app-react"
+            target="noopener noreferrer"
+          >
+            GitHub
           </a>{" "}
           and{" "}
           <a
-            href="https://suspicious-beaver-111c4d.netlify.com/"
+            href="https://quirky-dijkstra-7f195b.netlify.app/"
             target="noopener noreferrer"
           >
             hosted on Netlify
