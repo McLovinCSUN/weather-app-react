@@ -68,3 +68,7 @@
   color: hotpink;
   border: dashed 1px hotpink;
 }
+.btn:hover {
+  background-color: hotpink;
+  color: #39ff14;
+}
