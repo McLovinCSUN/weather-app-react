@@ -35,11 +35,12 @@ export default function WeatherForecastPreview(props) {
       "11",
     ];
     let hours = time[date.getHours()];
+    console.log(hours);
     if (hours < 10) {
       hours = `0${hours}`;
     }
 
-    if (date.getHours() <= 11 || date.getHours() === 24) {
+    if (date.getHours() < 12 || date.getHours() === 24) {
       return `${hours}:${minutes} AM`;
     } else {
       return `${hours}:${minutes} PM`;

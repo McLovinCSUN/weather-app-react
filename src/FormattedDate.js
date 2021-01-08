@@ -46,11 +46,11 @@ export default function FormattedDate(props) {
     minutes = `0${minutes}`;
   }
 
-  if (hours < 10) {
+  if (props.date.getHours() < 10) {
     hours = `0${hours}`;
   }
 
-  if (hours <= 11 || hours === 24) {
+  if (props.date.getHours() <= 11 || props.date.getHours() === 24) {
     amPm = "AM";
   } else {
     amPm = "PM";
